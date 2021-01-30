@@ -12,19 +12,25 @@ public class MapGenerator {
     public MapGenerator(int row, int col)
     {
         map =new int [row][col];
-        for(int i=0;i<map.length;i++)
+        int i=0;
+        while(i<map.length)
         {
-            for (int j = 0; j < map.length; j++) {
+            int j = 0;
+            while( j < map.length) {
                 map[i][j]=1;
+                 j++;
             }
+            i++;
         }
         brickWidth=540/col;
         brickHeight=150/row;
     }
     public void draw(Graphics2D g)
     {
-        for (int i = 0; i <map.length; i++) {
-            for (int j = 0; j <map.length; j++) {
+        int i = 0;
+        while( i <map.length) {
+            int j = 0;
+            while ( j <map.length) {
                 if(map[i][j]>0)
                 {
                     g.setColor(Color.white);
@@ -34,9 +40,10 @@ public class MapGenerator {
                     g.drawRect(j*brickWidth+80, i*brickHeight+50, brickWidth, brickHeight);
 
                 }
+                 j++;
 
             }
-
+            i++;
         }
 
 
@@ -46,4 +53,3 @@ public class MapGenerator {
         map[row][col]=value;
     }
 }
-
