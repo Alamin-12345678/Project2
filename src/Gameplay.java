@@ -34,7 +34,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
 
     public Gameplay()
     {
-        map = new MapGenerator(4, 12);
+        map = new MapGenerator(3, 7);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -58,7 +58,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
         g.fillRect(691, 0, 3, 592);
 
         // the scores
-        g.setColor(Color.white);
+        g.setColor(Color.blue);
         g.setFont(new Font("serif",Font.BOLD, 25));
         g.drawString(""+score, 590,30);
 
@@ -67,10 +67,10 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
         g.fillRect(playerX, 550, 100, 8);
 
         // the ball
-        g.setColor(Color.yellow);
+        g.setColor(Color.red);
         g.fillOval(ballposX, ballposY, 20, 20);
 
-        // when you won the game
+        // when you won the game code
         if(totalBricks <= 0)
         {
             play = false;
@@ -85,7 +85,7 @@ public class Gameplay extends JPanel implements KeyListener, ActionListener
             g.drawString("Press (Enter) to Restart", 230,350);
         }
 
-        // when you lose the game
+        // when you lose the game code
         if(ballposY > 570)
         {
             play = false;
