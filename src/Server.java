@@ -11,25 +11,26 @@ public class Server {
             ServerSocket serverSocket = new ServerSocket(5000);
             Socket socket = serverSocket.accept();
 
-            OutputStreamWriter o = new OutputStreamWriter(socket.getOutputStream());
-            BufferedWriter writer = new BufferedWriter(o);
+            OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream());
+            BufferedWriter writer = new BufferedWriter(out);
 
             InputStreamReader isr = new InputStreamReader(socket.getInputStream());
             BufferedReader reader = new BufferedReader(isr);
 
-            ArrayList<Integer> sc = new ArrayList<Integer>();
-            String data;
+            ArrayList<Integer> in = new ArrayList<Integer>();
+
             try {
+                String data;
                 data = reader.readLine();
 
                 FileWriter file = new FileWriter("A.txt", true);
-                BufferedWriter writer1 = new BufferedWriter(file);
+                BufferedWriter bwriter = new BufferedWriter(file);
 
 
-                writer1.append(data);
-                writer1.newLine();
+                bwriter.append(data);
+                bwriter.newLine();
 
-                writer1.close();
+                bwriter.close();
                 FileReader f = new FileReader("A.txt");
                 BufferedReader reader1 = new BufferedReader(f);
 
@@ -37,11 +38,11 @@ public class Server {
                 while ((line = reader1.readLine()) != null) {
                     String[] parts = line.split(" ");
                     int score = Integer.parseInt(parts[0]);
-                    sc.add(score);
+                    in.add(score);
 
                 }
-                writer.write(Collections.max(sc));
-                writer.flush();
+                bwriter.write(Collections.max(in));
+                bwriter.flush();
             } catch (Exception e) {
                 e.printStackTrace();
             }
