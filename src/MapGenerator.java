@@ -16,7 +16,7 @@ public class MapGenerator {
         while(i<map.length)
         {
             int j = 0;
-            while( j < map.length) {
+            while( j < map[0].length) {
                 map[i][j]=1;
                  j++;
             }
@@ -30,7 +30,7 @@ public class MapGenerator {
         int i = 0;
         while( i <map.length) {
             int j = 0;
-            while ( j <map.length) {
+            while ( j <map[0].length) {
                 if(map[i][j]>0)
                 {
                     g.setColor(Color.white);
@@ -50,6 +50,7 @@ public class MapGenerator {
     }
     public void setBrickValue(int value,int row,int col)
     {
+
         map[row][col]=value;
     }
 }
