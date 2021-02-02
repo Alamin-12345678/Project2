@@ -32,7 +32,7 @@ public class Main {
                public void run() {
 
                try{
-                   Thread.sleep(10000);
+                   Thread.sleep(20000);
                    writer.write(String.valueOf(Gameplay.score));
                    writer.newLine();
                    writer.flush();
